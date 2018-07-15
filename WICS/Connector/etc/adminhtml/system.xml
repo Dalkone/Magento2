@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author CrossMotion
+ * @copyright Copyright (c) 2016 CrossMotion (https://www.crossmotion.nl)
+ * @package CrossMotion_rmaForm
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="wics" translate="label" sortOrder="120">
+            <label>WICS</label>
+        </tab>
+        <section id="wics_connector" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Connector</label>
+            <tab>wics</tab>
+            <resource>WICS_Connector::wics_connector</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+
+                <field id="module_version" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="0">
+                    <frontend_model>WICS\Connector\Block\Adminhtml\System\Config\Advanced</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+
+                <field id="api_type" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>WMS type</label>
+                    <source_model>WICS\Connector\Model\Config\Source\WmsType</source_model>
+                </field>
+
+                <field id="api_url" translate="API Url" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Server URL</label>
+                </field>
+
+                <field id="api_environment" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Environment</label>
+                    <source_model>WICS\Connector\Model\Config\Source\WmsEnvironment</source_model>
+                    <depends>
+                        <field id="wics_connector/general/api_type">hageman</field>
+                    </depends>
+                </field>
+
+                <field id="api_client" translate="Client ID" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                </field>
+
+                <field id="api_key" translate="API Key" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Api Key</label>
+                </field>
+
+                <field id="api_secret" translate="API Secret" type="password" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Api Secret</label>
+                </field>
+
+                <field id="webshop_id" translate="Webshop ID" type="text" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <depends>
+                        <field id="wics_connector/general/api_type" separator=",">enterprise,hageman</field>
+                    </depends>
+                    <label>Webshop ID</label>
+                </field>
+
+                <field id="send_shipping_email" translate="Send shipping e-mail" type="select" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Send shipping e-mail</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="enable_orders" translate="Synchronize orders" type="select" sortOrder="80" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Synchronize orders</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="order_process_statuscode" translate="Statuscode to process orders" type="multiselect" sortOrder="90" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Statuscode to process orders</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+
+                <field id="enable_stock" translate="Synchronize stock" type="select" sortOrder="120" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Synchronize stock</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="oos_level" translate="Out of stock level" type="text" sortOrder="121" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Out of stock level</label>
+                    <depends>
+                        <field id="wics_connector/general/enable_stock">1</field>
+                    </depends>
+                </field>
+
+                <field id="tracking_type" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store tracking url or code</label>
+                    <source_model>WICS\Connector\Model\Config\Source\TrackingType</source_model>
+                </field>
+            </group>
+            
+            <group id="advanced" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Advanced</label>
+
+                <field id="layer_host" translate="Layer Host" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Layer Host</label>
+                </field>
+
+                <field id="layer_user" translate="Layer User" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Layer User</label>
+                </field>
+
+                <field id="layer_password" translate="Layer Password" type="password" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Layer Password</label>
+                </field>
+
+                <field id="layer_database" translate="Layer Database" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Layer Database</label>
+                </field>
+
+                <field id="layer_port" translate="Layer Port" type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Layer Port</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,23 @@
+"connector: The order was successful send to ","connector: The order was successful send to "
+"connector: Failed to send the order to ","connector: Failed to send the order to "
+". Check the order log for more information.",". Check the order log for more information."
+"connector: Could not connect to server. Please check your API Key and Secret","connector: Could not connect to server. Please check your API Key and Secret"
+"connector: Shipment for order #%1 created","connector: Shipment for order #%1 created"
+"connector: No shipments available for order %1","connector: No shipments available for order %1"
+WELPP,WELPP
+"Order send to %1. Notes: ","Order send to %1. Notes: "
+"Failed to send order to %1. Error: ","Failed to send order to %1. Error: "
+"Failed to send order to %1. scheduled for retry","Failed to send order to %1. scheduled for retry"
+"WELPP Shipment imported","WELPP Shipment imported"
+Welpp,Welpp
+"WICS Enterprise","WICS Enterprise"
+"connector: Not all required fields are filled in.","connector: Not all required fields are filled in."
+"connector: No valid server URL filled in.","connector: No valid server URL filled in."
+"connector: Successful connected to server.","connector: Successful connected to server."
+"Are you sure you want to send this order to %1 ?","Are you sure you want to send this order to %1 ?"
+"Send order to %1","Send order to %1"
+"Update %1 status","Update %1 status"
+WICS,WICS
+Connector,Connector
+General,General
+"WMS type","WMS type"

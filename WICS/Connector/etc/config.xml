@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <wics_connector>
+            <general>
+                <oos_level>0</oos_level>
+            </general>
+            <advanced>
+                <layer_host>phpmyadmin.fulfilmentservices.nl</layer_host>
+                <layer_user>hageadman</layer_user>
+                <layer_password>H4g3m4ns4f3!</layer_password>
+                <layer_database>hageman_wics</layer_database>
+                <layer_port>3306</layer_port>
+            </advanced>
+        </wics_connector>
+    </default>
+</config>

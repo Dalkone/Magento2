@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="wics_process_shipments" instance="WICS\Connector\Cron\Shipments" method="execute">
+            <schedule>*/30 * * * *</schedule>
+        </job>
+        <job name="wics_process_orders" instance="WICS\Connector\Cron\Orders" method="execute">
+            <schedule>*/30 * * * *</schedule>
+        </job>
+        <job name="wics_process_stock" instance="WICS\Connector\Cron\Stock" method="execute">
+            <schedule>*/30 * * * *</schedule>
+        </job>
+    </group>
+</config>

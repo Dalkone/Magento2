@@ -1,0 +1,33 @@
+{
+    "name": "WICS/Connector",
+    "description": "Magento 2 - Wics Connector Module",
+    "version": "2.0.0",
+    "homepage": "https://github.com/KP-Hageman/Magento2",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "CrossMotion",
+            "homepage": "https://www.CrossMotion.nl"
+        },
+        {
+            "name": "Dennis van Schaik",
+            "email": "dennis@crossmotion.nl"
+        },
+        {
+            "name": "Only Development",
+            "email": "http://www.only-development.nl"
+        },
+        {
+            "name": "Bert van der Stelt",
+            "email": "b.van.der.stelt@only-development.nl"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "WICS\\Connector\\": ""
+        }
+    }
+}

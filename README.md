@@ -8,6 +8,9 @@ Features:
 - Sync shipments Track & Trace information from Wics to Magento 2
 - Additional; When the Paazl Module is installed the configuration will be used in this module. Also the chosen shipment/pickup method will be send to Wics.
 
+How to install:
+Simply copy the Wics directory into your magento installation at "app/code"
+
 To use automatic import/export of Stock, Order and Shipment information, a proper configured cron job is required. 
 
 More information about setting up a cron job for Magento 2 can be found here:

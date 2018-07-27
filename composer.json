@@ -2,6 +2,12 @@
     "name": "WICS/Connector",
     "description": "Magento 2 - Wics Connector Module",
     "version": "2.0.0",
+    "license": [
+        "OSL-3.0"
+    ],
+    "require": {
+        "php": "~7.0.6"
+    },
     "homepage": "https://github.com/KP-Hageman/Magento2",
     "type": "magento2-module",
     "authors": [
@@ -27,7 +33,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "WICS\\Connector\\": ""
+            "WICS\\Connector\\": "src/"
         }
     }
 }

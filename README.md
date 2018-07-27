@@ -1,14 +1,14 @@
 # Magento 2 - Wics Connector Module
 This module can be used to connect your Magento 2 store to Wics.
  
-Features:
+## Features:
 - Sync articles from Magento 2 to Wics
 - Sync orders from Magento 2 to Wics
 - Sync stock updates from Wics to Magento 2
 - Sync shipments Track & Trace information from Wics to Magento 2
 - Additional; When the Paazl Module is installed the configuration will be used in this module. Also the chosen shipment/pickup method will be send to Wics.
 
-How to install:
+## How to install:
 Simply copy the Wics directory into your magento installation at "app/code"
 
 To use automatic import/export of Stock, Order and Shipment information, a proper configured cron job is required. 

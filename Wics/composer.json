@@ -1,5 +1,5 @@
 {
-    "name": "WICS/Connector",
+    "name": "Wics/Connector",
     "description": "Magento 2 - Wics Connector Module",
     "version": "2.0.0",
     "license": [
@@ -21,7 +21,7 @@
         },
         {
             "name": "Only Development",
-            "email": "http://www.only-development.nl"
+            "homepage": "http://www.only-development.nl"
         },
         {
             "name": "Bert van der Stelt",
@@ -33,7 +33,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "WICS\\Connector\\": "src/"
+            "Wics\\Connector\\": "src/"
         }
     }
 }

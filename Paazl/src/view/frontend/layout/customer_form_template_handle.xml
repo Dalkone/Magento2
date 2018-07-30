@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="customer_form_template">
+                <block class="Paazl\Shipping\Block\Form\Renderer\Text" name="customer_form_template_text" as="text" template="Paazl_Shipping::form/renderer/text.phtml"/>
+                <block class="Paazl\Shipping\Block\Form\Renderer\Textarea" name="customer_form_template_textarea" as="textarea" template="Paazl_Shipping::form/renderer/textarea.phtml"/>
+                <block class="Paazl\Shipping\Block\Form\Renderer\Multiline" name="customer_form_template_multiline" as="multiline" template="Paazl_Shipping::form/renderer/multiline.phtml"/>
+                <block class="Paazl\Shipping\Block\Form\Renderer\Date" name="customer_form_template_date" as="date" template="Paazl_Shipping::form/renderer/date.phtml"/>
+                <block class="Paazl\Shipping\Block\Form\Renderer\Select" name="customer_form_template_select" as="select" template="Paazl_Shipping::form/renderer/select.phtml"/>
+                <block class="Paazl\Shipping\Block\Form\Renderer\Multiselect" name="customer_form_template_multiselect" as="multiselect" template="Paazl_Shipping::form/renderer/multiselect.phtml"/>
+                <block class="Paazl\Shipping\Block\Form\Renderer\Boolean" name="customer_form_template_boolean" as="boolean" template="Paazl_Shipping::form/renderer/boolean.phtml"/>
+                <block class="Paazl\Shipping\Block\Form\Renderer\File" name="customer_form_template_file" as="file" template="Paazl_Shipping::form/renderer/file.phtml"/>
+                <block class="Paazl\Shipping\Block\Form\Renderer\Image" name="customer_form_template_image" as="image" template="Paazl_Shipping::form/renderer/image.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

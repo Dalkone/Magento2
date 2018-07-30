@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Create account form template
+ */
+/* @var $block \Paazl\Shipping\Block\Form\Renderer\Textarea */
+?>
+<?php
+$fieldCssClass = 'field field-' . $block->getHtmlId();
+$fieldCssClass .= $block->isRequired() ? ' required' : '';
+?>
+<div class="<?php /* @escapeNotVerified */ echo $fieldCssClass; ?>">
+    <label class="label" for="<?php echo $block->getHtmlId()?>"><span><?php /* @escapeNotVerified */ echo $block->getLabel() ?></span></label>
+    <div class="control">
+        <textarea id="<?php echo $block->getHtmlId()?>" name="<?php /* @escapeNotVerified */ echo $block->getFieldName()?>" rows="5" cols="25" <?php if ($block->getHtmlClass()):?> class="<?php echo $block->getHtmlClass();?>"<?php endif;?>><?php /* @escapeNotVerified */ echo $block->getEscapedValue() ?></textarea>
+        <?php if ($_message = $block->getAdditionalDescription()) : ?>
+        <div class="note"><?php /* @escapeNotVerified */ echo $_message; ?></div>
+        <?php endif; ?>
+    </div>
+</div>

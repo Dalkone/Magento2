@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+* Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+* See LICENSE.txt for license details.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <paazl>
+            <api>
+                <zipcode_validation>0</zipcode_validation>
+            </api>
+            <api_advanced>
+                <staging_url>http://staging.paazl.com/parcelshipperservice/orderRequest.wsdl</staging_url>
+                <production_url>https://ost.paazl.com/parcelshipperservice/orderRequest.wsdl</production_url>
+            </api_advanced>
+            <order>
+                <single_label_per_order>1</single_label_per_order>
+            </order>
+            <debug>
+                <display_real_error_msg>0</display_real_error_msg>
+                <custom_error_msg>Something went wrong while processing your request</custom_error_msg>
+            </debug>
+        </paazl>
+        <carriers>
+            <paazl>
+                <model>Paazl\Shipping\Model\Carrier</model>
+                <title>Paazl</title>
+                <allowed_methods>a,b</allowed_methods>
+                <specificerrmsg>This shipping method is not available.</specificerrmsg>
+                <shipment_requesttype>0</shipment_requesttype>
+                <sallowspecific>0</sallowspecific>
+                <active>0</active>
+                <cutoff_cost />
+                <free_method>paazl_free</free_method>
+                <shipment_requesttype>0</shipment_requesttype>
+                <!-- @todo Figure out what to do with this value -->
+                <max_package_weight>8000000</max_package_weight>
+                <handling_type>F</handling_type>
+                <handling_action>O</handling_action>
+                <is_online>1</is_online>
+                <test_mode>1</test_mode>
+                <debug>0</debug>
+            </paazl>
+
+            <paazlp>
+                <model>Paazl\Shipping\Model\Carrier\Perfect</model>
+                <title>Paazl Perfect</title>
+                <allowed_methods>a,b</allowed_methods>
+                <specificerrmsg>This shipping method is not available.</specificerrmsg>
+                <shipment_requesttype>0</shipment_requesttype>
+                <sallowspecific>0</sallowspecific>
+                <active>0</active>
+                <cutoff_cost />
+                <free_method>paazl_perfect_free</free_method>
+                <shipment_requesttype>0</shipment_requesttype>
+                <!-- @todo Figure out what to do with this value -->
+                <max_package_weight>8000000</max_package_weight>
+                <handling_type>F</handling_type>
+                <handling_action>O</handling_action>
+                <is_online>1</is_online>
+                <test_mode>1</test_mode>
+                <debug>0</debug>
+            </paazlp>
+        </carriers>
+        <exclude>
+            <street_name></street_name>
+            <house_number></house_number>
+            <house_number_addition></house_number_addition>
+        </exclude>
+    </default>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+* Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+* See LICENSE.txt for license details.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Paazl\Shipping\Block\Adminhtml\Log\Details" name="paazl.log.details" template="Paazl_Shipping::log/details.phtml" />
+        </referenceContainer>
+    </body>
+</page>

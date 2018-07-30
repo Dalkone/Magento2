@@ -1,0 +1,32 @@
+<?php
+/**
+ * Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Create account form template
+ */
+/* @var $block \Paazl\Shipping\Block\Form\Renderer\Multiselect */
+?>
+<?php
+$fieldCssClass = 'field field-' . $block->getHtmlId();
+$fieldCssClass .= $block->isRequired() ? ' required' : '';
+?>
+<div class="<?php /* @escapeNotVerified */ echo $fieldCssClass; ?>">
+    <label class="label" for="<?php echo $block->getHtmlId()?>"><span><?php /* @escapeNotVerified */ echo $block->getLabel() ?></span></label>
+    <div class="control">
+        <select multiple="multiple" id="<?php echo $block->getHtmlId()?>" name="<?php echo $block->getFieldName('')?>"<?php if ($block->getHtmlClass()):?> class="select <?php echo $block->getHtmlClass();?>"<?php endif;?>>
+        <?php foreach ($block->getOptions() as $option):?>
+        <option value="<?php /* @escapeNotVerified */ echo $option['value']?>"<?php if ($block->isValueSelected($option['value'])):?> selected="selected"<?php endif;?>><?php echo $block->escapeHtml($option['label'])?></option>
+        <?php endforeach;?>
+        </select>
+        <?php if ($_message = $block->getAdditionalDescription()) : ?>
+        <div class="note"><?php /* @escapeNotVerified */ echo $_message; ?></div>
+        <?php endif; ?>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+* Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+* See LICENSE.txt for license details.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Directory:etc/zip_codes.xsd">
+    <zip countryCode="NL">
+        <codes>
+            <code id="pattern_1" active="true" example="1234 AB">^[1-9][0-9]{3}\s?(?!sa|sd|ss)[a-zA-Z]{2}$</code>
+        </codes>
+    </zip>
+</config>

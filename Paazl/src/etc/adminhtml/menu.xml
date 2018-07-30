@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+* Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+* See LICENSE.txt for license details.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Paazl_Shipping::paazl" title="Paazl" module="Paazl_Shipping" sortOrder="30" resource="Magento_Backend::content"/>
+        <add id="Paazl_Shipping::paazl_shipping_logging"
+             title="Logging"
+             module="Paazl_Shipping"
+             sortOrder="10"
+             parent="Paazl_Shipping::paazl"
+             resource="Paazl_Shipping::logging"
+             action="paazl/log/index"
+             dependsOnConfig="paazl/debug/log"
+        />
+    </menu>
+</config>

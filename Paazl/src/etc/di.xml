@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!--
+* Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+* See LICENSE.txt for license details.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Paazl\Shipping\Api\PaazlManagementInterface" type="Paazl\Shipping\Model\PaazlManagement" />
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="PaazlListOrdersCommand" xsi:type="object">Paazl\Shipping\Console\Command\ListOrdersCommand</item>
+                <item name="PaazlCommitOrderCommand" xsi:type="object">Paazl\Shipping\Console\Command\CommitOrderCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Quote\Model\Cart\ShippingMethodConverter">
+        <plugin name="location-data-to-rate" type="Paazl\Shipping\Model\Plugin\Quote\Cart\ShippingMethodConverterPlugin" sortOrder="100"/>
+    </type>
+
+    <virtualType name="PaazlOrderRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">order</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaazlUpdateOrderRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">updateOrder</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaazlAddressRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">address</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaazlShippingOptionRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">shippingOption</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaazlOrderCommitRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">commitOrder</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaazlListOrdersRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">listOrders</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaazlCheckoutRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">checkout</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaazlCheckoutStatusRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">checkoutStatus</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaazlGenerateImageLabelsRequest" type="Paazl\Shipping\Model\Api\Request">
+        <arguments>
+            <argument name="method" xsi:type="string">generateImageLabels</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Checkout\Model\DefaultConfigProvider">
+        <plugin name="paalz_shipping_configprovider_plugin" type="Paazl\Shipping\Model\Plugin\Checkout\ConfigProviderPlugin" />
+    </type>
+
+    <preference for="Paazl\Shipping\Api\Data\ShipmentDeliveryInterface" type="Paazl\Shipping\Model\Data\Delivery" />
+
+    <type name="Magento\Quote\Model\Quote\Address\Rate">
+        <plugin name="paalz_shipping_quote_address_rate_plugin" type="Paazl\Shipping\Model\Plugin\Quote\Address\RatePlugin" />
+    </type>
+
+    <preference for="Magento\Shipping\Model\Shipping\Labels" type="Paazl\Shipping\Model\Shipping\Labels"/>
+
+    <preference for="Magento\Quote\Model\ShippingMethodManagement" type="Paazl\Shipping\Model\Quote\ShippingMethodManagement"/>
+
+    <type name="Magento\Quote\Model\Quote\Address\ToOrderAddress">
+        <plugin name="convertQuoteAddressToOrderAddress" type="Paazl\Shipping\Model\Plugin\ConvertQuoteAddressToOrderAddress"/>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address">
+        <plugin name="convertQuoteAddressToCustomerAddress" type="Paazl\Shipping\Model\Plugin\ConvertQuoteAddressToCustomerAddress"/>
+    </type>
+    <!--<type name="Magento\Sales\Api\Data\OrderAddressInterface">
+        <plugin sortOrder="1" name="PaazlAddressPlugin" type="Paazl\Shipping\Model\Plugin\PaazlAddressPlugin" />
+        <plugin sortOrder="1" name="paazlShippingOrderAddressInterface"
+                type="Paazl\Shipping\Model\Plugin\SalesOrderApiDataOrderAddressInterfacePlugin" />
+    </type>
+
+    <type name="Magento\Sales\Model\Order\Address">
+        <plugin sortOrder="1" name="PaazlOrderAddressPlugin" type="Paazl\Shipping\Model\Plugin\PaazlOrderAddressPlugin" />
+    </type>
+    -->
+
+    <!-- Allow reorder and use old street field to fill in Paazl street fields -->
+    <preference for="Magento\Sales\Model\ResourceModel\Order\Address\Collection" type="Paazl\Shipping\Model\ResourceModel\Order\Address\Collection" />
+    <!-- use old street field to fill in Paazl street fields for Admin -> Create Order -->
+    <preference for="Magento\Quote\Model\ResourceModel\Quote\Address\Collection" type="Paazl\Shipping\Model\ResourceModel\Quote\Address\Collection" />
+    <!-- Save Paazl address fields also to quote and order address during checkout -->
+    <preference for="Magento\Quote\Model\Quote\Address\CustomAttributeList" type="Paazl\Shipping\Model\Quote\Address\CustomAttributeList" />
+    <!-- Make sure Admin -> Create Order also works from the customer detail page -->
+    <preference for="Magento\Customer\Model\Address\CustomAttributeListInterface" type="Paazl\Shipping\Model\Quote\Address\CustomAttributeList" />
+
+    <!-- Remove old street field in forms and use new street fields for saving -->
+    <preference for="Magento\Customer\Api\AddressRepositoryInterface"
+                type="Paazl\Shipping\Model\Customer\ResourceModel\AddressRepository" />
+    <!-- Remove old street field in forms and use new street fields for saving -->
+    <preference for="\Magento\Customer\Model\ResourceModel\AddressRepository"
+                type="Paazl\Shipping\Model\Customer\ResourceModel\AddressRepository" />
+    <!-- Prevent old street validate error in Admin -> Create Order -->
+    <preference for="Magento\Quote\Model\Quote\Address" type="Paazl\Shipping\Model\Quote\Address" />
+
+    <!-- Remove old street from Admin -> Create Order -->
+    <preference for="Magento\Sales\Block\Adminhtml\Order\Create\Billing\Address" type="Paazl\Shipping\Block\Adminhtml\Order\Create\Billing\Address" />
+    <!-- Remove old street from Admin -> Create Order -->
+    <preference for="Magento\Sales\Block\Adminhtml\Order\Create\Shipping\Address" type="Paazl\Shipping\Block\Adminhtml\Order\Create\Shipping\Address" />
+    <!-- Remove old street from Admin -> order view -> edit address -->
+    <preference for="Magento\Sales\Block\Adminhtml\Order\Address\Form" type="Paazl\Shipping\Block\Adminhtml\Order\Address\Form" />
+
+    <!-- Remove old street from Admin -> customer -> addresses -->
+    <preference for="Magento\Ui\Component\Layout\Tabs" type="Paazl\Shipping\Model\Ui\Component\Layout\Tabs" />
+
+    <!-- Remove old street field in forms and use new street fields for saving -->
+    <preference for="Magento\Customer\Model\Metadata\Form" type="Paazl\Shipping\Model\Customer\Metadata\Form" />
+</config>

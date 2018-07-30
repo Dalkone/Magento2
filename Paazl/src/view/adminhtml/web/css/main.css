@@ -1,0 +1,11 @@
+/* Menu Icon */
+.admin__menu li#menu-paazl-shipping-paazl > a:before {
+    background: url(../images/menu-icon.png) no-repeat;
+    width: 30px;
+    height: 26px;
+    content: '';
+    display: block;
+    vertical-align: bottom;
+    margin: 0 auto;
+    margin-bottom: 3px;
+}

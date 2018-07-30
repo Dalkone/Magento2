@@ -1,0 +1,30 @@
+<!--
+* Copyright (c) 2017 H&O E-commerce specialisten B.V. (http://www.h-o.nl/)
+* See LICENSE.txt for license details.
+-->
+<style>
+    .post-code {  }
+    .house-nr { width: 49.5%; display: inline-block; }
+</style>
+
+<input class="input-text house-nr" type="text" data-bind="
+    value: value,
+    valueUpdate: 'keyup',
+    hasFocus: focused,
+    attr: {
+        name: houseNr,
+        placeholder: placeholder,
+        'aria-describedby': noticeId,
+        id: uid
+    }" />
+
+<input class="input-text house-nr" type="text" data-bind="
+    value: value,
+    valueUpdate: 'keyup',
+    hasFocus: focused,
+    attr: {
+        name: houseNrAddition,
+        placeholder: placeholder,
+        'aria-describedby': noticeId,
+        id: uid
+    }" />

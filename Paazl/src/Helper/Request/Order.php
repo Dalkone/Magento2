@@ -93,9 +93,9 @@ class Order extends Generic
                     }
                 }
 
-                $productData['unitPrice'] = $item->getData('price_incl_tax');
+                $productData['unitPrice'] = $item->getData('price_incl_tax') - $item->getData('discount_amount');
                 if ($item->getParentItem()) {
-                    $productData['unitPrice'] = $item->getParentItem()->getData('price_incl_tax');
+                    $productData['unitPrice'] = $item->getParentItem()->getData('price_incl_tax') - $item->getParentItem()->getData('discount_amount');
                 }
 
                 $productData = array_merge($productData, $storeData);
